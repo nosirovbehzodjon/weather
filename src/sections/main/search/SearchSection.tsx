@@ -1,6 +1,7 @@
 "use server";
 
-import { Button, TextField } from "@mui/material";
+import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import { redirect } from "next/navigation";
 
 async function handelSubmit(data: FormData) {
@@ -16,41 +17,23 @@ async function handelSubmit(data: FormData) {
 
 export const SearchSection = () => {
   return (
-    <form
-      style={{
-        width: "100%",
-      }}
-      action={handelSubmit}
-    >
-      <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-        <TextField
-          id="standard-basic"
-          type="text"
-          name="country"
-          color="secondary"
-          size="small"
-          style={{ width: "100%" }}
-          label="Country name"
-          variant="standard"
-        />
-        <div
-          style={{
-            marginTop: "1rem",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <Button
-            type="submit"
-            variant="outlined"
-            className="mt-3"
-            size="medium"
-            color="secondary"
-          >
-            search
-          </Button>
-        </div>
+    <div className="w-full mb-32  text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:text-left">
+      <div className="group w-full rounded-lg border  px-5 py-4 transition-colors border-neutral-700 hover:dark:bg-neutral-800/30">
+        <form className="w-full" action={handelSubmit}>
+          <div className="min-w-full md:min-w-[700px] mx-auto">
+            <Input
+              type="text"
+              placeholder="Write country name..."
+              name="country"
+            />
+            <div className="mb-2 flex justify-end">
+              <Button type="submit" className="mt-3" color="secondary">
+                search
+              </Button>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };

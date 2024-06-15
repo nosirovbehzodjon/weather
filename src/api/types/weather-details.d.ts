@@ -26,3 +26,8 @@ export interface IWeatherDetails {
   name: string;
   cod: number;
 }
+
+export interface ILocalStorageItem {
+  name: string;
+  description: string;
+}

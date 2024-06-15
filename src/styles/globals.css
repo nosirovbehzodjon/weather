@@ -23,3 +23,40 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+input {
+  font-family: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+  user-select: none;
+  font: inherit;
+}
+
+a,
+input,
+button,
+textarea,
+[tabindex] {
+  &:not([data-focus-visible-added]) {
+    outline: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 50px #bab9bb inset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
