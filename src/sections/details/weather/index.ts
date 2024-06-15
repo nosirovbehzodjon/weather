@@ -1,1 +1,1 @@
-export * from "@/sections/details/weather";
+export * from "@/sections/details/weather/Weather";
