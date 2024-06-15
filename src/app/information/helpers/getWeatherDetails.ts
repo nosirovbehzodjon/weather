@@ -21,7 +21,7 @@ export async function getWeatherDetails(name: string): Promise<IData> {
 
     //---api-call-for-weather
     const weatherResponse = await fetch(
-      process.env.NEXT_PUBLIC_BASE_API! + "/weather?" + weatherParam
+      process.env.NEXT_PUBLIC_BASE_API_WEATHER! + "?" + weatherParam
     );
 
     if (weatherResponse.status == 401) {
@@ -51,7 +51,7 @@ export async function getWeatherDetails(name: string): Promise<IData> {
 
     //---api-call-for-forecast
     const forecastResponse = await fetch(
-      process.env.NEXT_PUBLIC_BASE_API! + "/forecast/daily?" + forecastParam
+      process.env.NEXT_PUBLIC_BASE_API_FORECAST! + "?" + forecastParam
     );
 
     if (!forecastResponse.ok) {
