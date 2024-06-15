@@ -1,9 +1,5 @@
 import { IForecastDetails } from "@/api/types/forecast-details";
-import {
-  ILocalStorageItem,
-  IWeatherDetails,
-} from "@/api/types/weather-details";
-import { historyCityLogic } from "@/app/information/helpers/historyCityLogic";
+import { IWeatherDetails } from "@/api/types/weather-details";
 
 interface IData {
   weather: IWeatherDetails;
@@ -15,13 +11,13 @@ export async function getWeatherDetails(name: string): Promise<IData> {
     //---weather-params-by-country-name
     const weatherParam = new URLSearchParams({
       q: name,
-      appid: process.env.NEXT_PUBLIC_API_KEY!,
+      appid: process.env.API_KEY!,
       units: "metric",
     }).toString();
 
     //---api-call-for-weather
     const weatherResponse = await fetch(
-      process.env.NEXT_PUBLIC_BASE_API_WEATHER! + "?" + weatherParam
+      process.env.BASE_API_WEATHER! + "?" + weatherParam
     );
 
     if (weatherResponse.status == 401) {
@@ -46,12 +42,12 @@ export async function getWeatherDetails(name: string): Promise<IData> {
       lat: weatherData.coord.lat.toString(),
       lon: weatherData.coord.lon.toString(),
       cnt: "7",
-      appid: process.env.NEXT_PUBLIC_API_KEY!,
+      appid: process.env.API_KEY!,
     }).toString();
 
     //---api-call-for-forecast
     const forecastResponse = await fetch(
-      process.env.NEXT_PUBLIC_BASE_API_FORECAST! + "?" + forecastParam
+      process.env.BASE_API_FORECAST! + "?" + forecastParam
     );
 
     if (!forecastResponse.ok) {
