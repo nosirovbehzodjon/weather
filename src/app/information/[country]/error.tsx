@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/button";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default function Error({
   error,

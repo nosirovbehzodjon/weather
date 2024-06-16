@@ -20,11 +20,11 @@ export async function getWeatherDetails(name: string): Promise<IData> {
       process.env.BASE_API_WEATHER! + "?" + weatherParam
     );
 
-    if (weatherResponse.status == 401) {
+    if (weatherResponse.status === 401) {
       throw new Error("you have not done the authorization");
     }
 
-    if (weatherResponse.status == 404) {
+    if (weatherResponse.status === 404) {
       throw new Error(name + " - this city does not exist in our database");
     }
 
@@ -62,6 +62,6 @@ export async function getWeatherDetails(name: string): Promise<IData> {
       forecast: forecastrData,
     };
   } catch (error) {
-    throw new Error(error as string);
+    throw error;
   }
 }
