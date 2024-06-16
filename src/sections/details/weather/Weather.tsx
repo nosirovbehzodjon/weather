@@ -1,6 +1,8 @@
 import { IWeatherDetails } from "@/api/types/weather-details";
+import { Button } from "@/components/button";
 import { Card } from "@/components/cards";
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment } from "react";
 
 interface ICurrentWeatherProps {
@@ -14,10 +16,15 @@ export const Weather = ({ weather }: ICurrentWeatherProps) => {
 
   return (
     <Fragment>
-      <h2 className="text-2xl font-bold mb-4 uppercase text-gray-300">
-        DETAILS
-      </h2>
-      <Card className="py-10 flex  flex-wrap gap-10 items-center">
+      <div className="flex h-[50px] items-center">
+        <h2 className="text-2xl me-2 font-bold uppercase text-gray-300">
+          DETAILS
+        </h2>
+        <Link rel="stylesheet" href="/">
+          <Button>Go to main</Button>
+        </Link>
+      </div>
+      <Card className="py-15 flex  flex-wrap gap-10 items-center">
         <div>
           <h2 className="text-[4rem] font-bold leading-none">{name}</h2>
           <div className="flex items-center">
